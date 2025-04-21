@@ -1,0 +1,351 @@
+/* --- NRL.com Inspired Theme --- */
+
+/* Optional: Import a font like Montserrat or Lato */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* --- Variables (Optional but helpful) --- */
+:root {
+    --nrl-dark-blue: #001f3f; /* Example dark blue */
+    --nrl-teal: #00a9ce;      /* Example teal */
+    --nrl-light-grey: #f8f9fa;
+    --nrl-medium-grey: #e9ecef;
+    --nrl-dark-grey: #6c757d;
+    --nrl-text-light: #fdfdfd;
+    --nrl-text-dark: #212529;
+    --nrl-accent-gold: #ffc107; /* Example accent */
+    --nrl-success: #198754;     /* Bootstrap green */
+    --nrl-error: #dc3545;       /* Bootstrap red */
+    --nrl-info: #0dcaf0;        /* Bootstrap cyan */
+    --nrl-warning: #ffc107;     /* Bootstrap yellow */
+}
+
+/* --- General Styles --- */
+body {
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--nrl-dark-blue); /* Dark background */
+    background-image: linear-gradient(145deg, #001f3f 0%, #003366 100%); /* Subtle gradient */
+    color: var(--nrl-text-light); /* Default light text */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    font-weight: 700;
+    color: var(--nrl-teal); /* Teal headings */
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--nrl-teal);
+    padding-bottom: 5px;
+    display: inline-block; /* Keep border contained */
+}
+
+a {
+    color: var(--nrl-teal);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--nrl-text-light);
+    text-decoration: underline;
+}
+
+/* --- Game Container & Description --- */
+#game-container {
+    background-color: var(--nrl-text-light); /* Light background for content */
+    color: var(--nrl-text-dark); /* Dark text inside container */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    width: 95%;
+    max-width: 850px;
+    margin-top: 25px;
+    border: 1px solid var(--nrl-dark-grey);
+}
+
+.game-description {
+    max-width: 90%;
+    margin: 0 auto 25px auto;
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--nrl-light-grey);
+}
+.game-description strong {
+    color: var(--nrl-accent-gold);
+}
+.game-description a {
+    color: var(--nrl-info);
+}
+.game-description a:hover {
+    color: var(--nrl-text-light);
+}
+
+/* --- Settings Area --- */
+.settings {
+    background-color: var(--nrl-medium-grey);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+.settings label {
+    font-weight: 700;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: inline-block;
+    color: var(--nrl-text-dark);
+}
+.settings select {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    background-color: #fff;
+    cursor: pointer;
+}
+.settings span { /* Style for static span if it exists */
+    font-size: 0.85em;
+    color: #666;
+     margin-left: 5px;
+}
+.settings br {
+    margin-bottom: 10px;
+}
+
+
+/* --- Player Display --- */
+#players {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.4em;
+    font-weight: 700;
+    padding: 15px;
+    background-color: var(--nrl-dark-blue);
+    color: var(--nrl-text-light);
+    border-radius: 8px;
+}
+#players strong {
+    color: var(--nrl-accent-gold);
+    padding: 0 8px;
+    display: inline-block;
+}
+
+/* --- Path/Answer Lists --- */
+#path-display, #hint-display, #answer-display {
+    margin-bottom: 25px;
+    text-align: center;
+}
+#path-list, #answer-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: left;
+}
+#path-list li, #answer-list li {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+#path-list li:nth-child(odd),
+#answer-list li:nth-child(odd) {
+     background-color: var(--nrl-light-grey);
+}
+/* Match Info Styling */
+.match-info {
+    display: block;
+    font-size: 0.85em;
+    color: var(--nrl-dark-grey);
+    margin-left: 0;
+    margin-top: 4px;
+    font-style: normal;
+}
+
+/* --- Controls --- */
+#controls {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--nrl-medium-grey);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+#controls label {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+#controls input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    min-width: 200px;
+}
+#controls input[type="text"]:focus {
+    border-color: var(--nrl-teal);
+    box-shadow: 0 0 0 0.2rem rgba(0, 169, 206, 0.25);
+    outline: none;
+}
+
+/* --- Buttons --- */
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 5px;
+}
+button:hover {
+    filter: brightness(110%);
+    transform: translateY(-1px);
+}
+button:active {
+     transform: translateY(0px);
+     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+button:disabled {
+    background-color: var(--nrl-dark-grey) !important;
+    color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    filter: grayscale(50%);
+}
+/* Specific Button Colors */
+#add-step-button { background-color: var(--nrl-teal); color: var(--nrl-text-light); }
+#reset-button { background-color: var(--nrl-warning); color: var(--nrl-text-dark); }
+#show-hint-button { background-color: var(--nrl-dark-grey); color: var(--nrl-text-light); }
+#show-answer-button { background-color: #1E88E5; color: var(--nrl-text-light); }
+/* Hover states */
+#reset-button:hover { background-color: #ffca2c; }
+#show-hint-button:hover { background-color: #5a6268; }
+#show-answer-button:hover { background-color: #1976D2; }
+
+/* --- Message Area (Includes Enhanced Success Style) --- */
+.message {
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-left: auto;
+    text-align: center;
+    min-height: auto;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+.message:empty { display: none; }
+
+/* Enhanced Success Message Styling */
+.message.success {
+    background-color: var(--nrl-success); /* Use success color */
+    color: var(--nrl-text-light);
+    font-size: 1.3em; /* Larger font */
+    padding: 15px 25px; /* More padding */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--nrl-accent-gold); /* Gold border */
+    animation: pulseSuccess 1.5s ease-in-out; /* Add animation */
+    transform: scale(1); /* Start scale (animation handles pulse) */
+    display: block; /* Make it block to take width */
+    width: fit-content; /* Size to content */
+    margin: 10px auto; /* Center block message */
+    line-height: 1.4; /* Adjust line height for multi-line */
+}
+.message.error { background-color: var(--nrl-error); color: var(--nrl-text-light); }
+.message.info { background-color: var(--nrl-info); color: var(--nrl-text-dark); }
+
+/* --- Add Animation Keyframes --- */
+@keyframes pulseSuccess {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4); } /* Start */
+    50% { transform: scale(1.05); box-shadow: 0 0 10px 5px rgba(255, 193, 7, 0.1); } /* Middle pulse with gold shadow */
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); } /* End */
+}
+
+/* --- Hint & Answer Displays --- */
+#hint-display, #answer-display {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: left;
+    opacity: 0; max-height: 0; overflow: hidden;
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+#hint-display.visible, #answer-display.visible {
+    opacity: 1;
+    max-height: 1500px;
+    padding: 25px;
+    margin-top: 30px;
+}
+#hint-display { background-color: #eef2f7; border: 1px solid #d0d9e2; }
+#answer-display { background-color: #fff9e6; border: 1px solid #ffeebb; }
+
+#hint-display h2, #answer-display h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    border: none;
+}
+#hint-display h2 { color: #3a5d8a; }
+#answer-display h2 { color: #b95000; }
+
+#hint-content p { margin: 10px 0 5px 0; font-weight: 700; color: var(--nrl-text-dark); }
+#hint-content ul { list-style-type: none; padding-left: 0; margin: 0 0 15px 0; }
+#hint-content li { margin-bottom: 5px; padding: 5px 0 5px 10px; border-left: 3px solid var(--nrl-teal); }
+
+#answer-list { list-style-type: none; padding-left: 0; margin: 0; }
+#answer-list li { font-size: 1.1em; }
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2em; }
+    #game-container { padding: 20px; }
+    #controls { flex-direction: column; align-items: stretch; gap: 10px; }
+    #controls input[type="text"] { min-width: 100%; width: 100%; box-sizing: border-box; }
+    #controls button { width: 100%; }
+    .message { width: auto; margin-left: 0; margin-right: 0; margin-top: 10px; display: block; }
+    #game-container > button { width: calc(33% - 10px); font-size: 0.9em; padding: 10px 5px; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 15px 10px; }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.4em; }
+    #game-container { padding: 15px; }
+    .settings label, .settings select, .settings span { display: block; margin-bottom: 8px; width: 100%; box-sizing: border-box; }
+    .settings select { margin-right: 0; width: 100%; }
+    #game-container > button { width: 100%; margin-bottom: 10px; display: block; box-sizing: border-box;}
+    #add-step-button { margin-top: 10px; }
+}

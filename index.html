@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Six Degrees of Rugby Leagues</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Six Degrees of Rugby Leagues</h1>
+
+    <p class="game-description">
+        Can you connect two NRL players? Link them by finding players who were teammates in the exact same match.
+        This game uses data from the <strong id="data-years">...</strong> seasons.
+        Data thanks to <a href="https://nrlpredictions.net/sport" target="_blank" rel="noopener noreferrer">nrlpredictions.net/sport</a>.
+    </p>
+
+    <div id="game-container">
+        <div class="settings">
+             <label for="start-year-select">Start Player Year Range:</label>
+             <select id="start-year-select">
+                 </select>
+             <label for="end-year-select">End Player Year Range:</label>
+             <select id="end-year-select">
+                 </select>
+             <span>(Filters start/end player pool)</span>
+             <br>
+             <label for="min-games-select">Minimum Games Played (Overall):</label>
+             <select id="min-games-select">
+                 <option value="0">0 Games</option>
+                 <option value="50" selected>50 Games</option>
+                 <option value="100">100 Games</option>
+                 <option value="150">150 Games</option>
+                 <option value="200">200 Games</option>
+             </select>
+             <span>(Filters start/end player pool)</span>
+        </div>
+
+        <div id="players">
+            <p>Connect <strong id="start-player">...</strong> to <strong id="end-player">...</strong></p>
+        </div>
+
+        <div id="path-display">
+            <h2>Your Path:</h2>
+            <ul id="path-list">
+                </ul>
+        </div>
+
+        <div id="controls">
+            <label for="player-input">Find teammate:</label>
+            <input type="text" id="player-input" list="player-datalist" placeholder="Enter player name..." autocomplete="off">
+            <datalist id="player-datalist">
+                 </datalist>
+            <button id="add-step-button" disabled>Add Player</button>
+            <p id="message" class="message"></p>
+        </div>
+
+        <button id="reset-button" disabled>New Game</button>
+        <button id="show-hint-button" disabled>Show Hint</button> <button id="show-answer-button" disabled>Show Answer</button>
+
+         <div id="hint-display" style="display: none;">
+             <h2>Hints:</h2>
+             <div id="hint-content"></div> </div>
+
+         <div id="answer-display" style="display: none;">
+             <h2>Shortest Path:</h2>
+            <ul id="answer-list"></ul>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
